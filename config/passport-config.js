@@ -9,7 +9,7 @@ const options = {
     secretOrKey :  process.env.SECRET_KEY
 }
 // Setting up the JWT strategy for Passport 
-
+// this is uploaeded to the passport middleware
 passport.use(
     new JwtStrategy(options,async (jwt_payload,done)=>{
         try{
