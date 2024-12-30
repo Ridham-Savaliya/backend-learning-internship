@@ -22,17 +22,19 @@ async function addToQueue(notification) {
 async function processQueue() {
     try {
         // Pop the notification from the queue
-        const job = await redis.rPop('notificationQueue'); 
+        const job = await redis.rPop('notificationQueue');
         
         if (job) {
             const notification = JSON.parse(job);
             console.log('Processing notification', notification);
-        } else {
-            console.log('Queue is empty');
         }
+        // Removed the "Queue is empty" log to prevent repeated messages
     } catch (error) {
         console.error('Error processing the queue', error);
     }
 }
+
+// Automatically run the processQueue function every few seconds
+setInterval(processQueue, 1000);
 
 module.exports = { addToQueue, processQueue };

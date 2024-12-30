@@ -16,7 +16,7 @@ const Author = sequelize.define('author',{
     },
     role: {
         type: DataTypes.ENUM('Admin', 'Author', 'Customer'),
-        defaultValue: 'Customer', // Default role for new users
+        defaultValue: 'Author', // Default role for new users
       },
 })
 

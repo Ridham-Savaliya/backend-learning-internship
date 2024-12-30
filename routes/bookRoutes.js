@@ -6,7 +6,7 @@
     const passport  = require('../config/passport-config.js');
 
     
-    router.post("/createBook",passport.authenticate('jwt',{session:false}),authorizeRoles(['Admin','Author']), bookController.addBook); // Add a new book
+    router.post("/createBook", bookController.addBook); // Add a new book
     router.get("/", bookController.getBooks); // Get all books with their authors
     router.delete('/book/:id',bookController.DeleteBookById); // deletes books by id
 
