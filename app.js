@@ -5,7 +5,7 @@ const fs = require('fs');
 const axios = require('axios');
 const Redis = require('ioredis');
 const {processQueue} = require('./services/notificationQueue');
-const notificationRoute = require('./routes/notificationRoutes');
+// const notificationRoute = require('./routes/notificationRoutes');
 const httpMiddleware = require("./middlewares/HttpsMiddleware");
 const https = require('https');
 const cookieParser = require("cookie-parser");
@@ -32,21 +32,21 @@ const { func } = require("joi");
 
 
 const app = express();
-const redis = new Redis();
+// const redis = new Redis();
 // Trust the first proxy
 
-(async () => {
-  try {
-      // Test connection
-      await redis.set('my_key', 'Hello, Redis!');
-      const value = await redis.get('my_key');
-      console.log('Value:', value); // Should print: Hello, Redis!
-  } catch (error) {
-      console.error('Redis error:', error);
-  } finally {
-      redis.disconnect();
-  }
-})();
+// (async () => {
+//   try {
+//       // Test connection
+//       await redis.set('my_key', 'Hello, Redis!');
+//       const value = await redis.get('my_key');
+//       console.log('Value:', value); // Should print: Hello, Redis!
+//   } catch (error) {
+//       console.error('Redis error:', error);
+//   } finally {
+//       redis.disconnect();
+//   }
+// })();
 
 // Example for development environment
 const sequelize = new Sequelize(config.development);
@@ -103,11 +103,11 @@ app.use('/authorbook',AuthorbookRoutes);//Routes foe Authorbook operations
 app.use('/auth',UserRoutes); // routes for the login and registration
 app.use('/',RefreshRoute); //route for the refreshing the tokens after the login
 app.use("/",RegisterRoute); //route for the signup of the user
-app.use("/notification",notificationRoute);
+// app.use("/notification",notificationRoute);
 app.use("/caching",CachingRoute);
 
 
-setInterval(processQueue,1000);
+// setInterval(processQueue,1000);
 
 // Sync database and start the server
 sequelize

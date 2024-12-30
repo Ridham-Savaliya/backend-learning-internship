@@ -1,17 +1,17 @@
-const {addToQueue} = require('../services/notificationQueue');
+// const {addToQueue} = require('../services/notificationQueue');
 
-async function NotifyUser(req,res)
-{
+// async function NotifyUser(req,res)
+// {
 
-    const notification = {  
-        user:req.body.user,
-        message:'You have a new notification!',
-    }
-
-
-    await addToQueue(notification);
-    res.status(200).send('Notification sent to queue');
-}
+//     const notification = {  
+//         user:req.body.user,
+//         message:'You have a new notification!',
+//     }
 
 
-module.exports = {NotifyUser};
+//     await addToQueue(notification);
+//     res.status(200).send('Notification sent to queue');
+// }
+
+
+// module.exports = {NotifyUser};
