@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
     dialect: process.env.DATABASE_DIALECT,
     dialectOptions: {
       ssl: {
-        ca: fs.readFileSync('C:/Users/HP/OneDrive/Desktop/Dwork/SqlSeqlize/mysql-learning/ssl/ca.pem'),
+        ca: fs.readFileSync('ssl/ca.pem'),
         // Use correct path
       },
     },

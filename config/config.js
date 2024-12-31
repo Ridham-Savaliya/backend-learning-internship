@@ -12,7 +12,7 @@ module.exports = {
     dialect: 'mysql',
     dialectOptions: {
       ssl: {
-        ca: fs.readFileSync('C:/Users/HP/OneDrive/Desktop/Dwork/SqlSeqlize/mysql-learning/ssl/ca.pem'),
+        ca: fs.readFileSync('ssl/ca.pem'),
         // Ensure path is correct
       },
     },
