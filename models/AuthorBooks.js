@@ -27,6 +27,7 @@ const AuthorBooks = sequelize.define("AuthorBooks", {
     type:Sequelize.INTEGER,
     allowNull:true
   },
+  
  });
 
 module.exports = AuthorBooks;

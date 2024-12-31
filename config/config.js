@@ -1,5 +1,6 @@
 require("dotenv").config();
 const { Sequelize } = require('sequelize');
+const fs = require('fs');
 
 module.exports = {
   development: {
@@ -7,7 +8,14 @@ module.exports = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: 'mysql',
+    dialectOptions: {
+      ssl: {
+        ca: fs.readFileSync('C:/Users/HP/OneDrive/Desktop/Dwork/SqlSeqlize/mysql-learning/ssl/ca.pem'),
+        // Ensure path is correct
+      },
+    },
   },
   test: {
     username: process.env.TEST_DB_USER,
